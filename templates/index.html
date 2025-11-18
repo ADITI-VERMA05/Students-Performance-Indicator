@@ -4,9 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Index</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 <body>
-  <a href="https://github.com/ADITI-VERMA05/Students-Performance-Indicator" class="top-left-link" target="_blank" rel="noopener noreferrer">GitHub Repository Link</a>
-  <h1>Welcome to the home page</h1>
+  <div class="login">
+    <h1>Welcome to the Student Performance Indicator</h1>
+
+    <!-- Button to prediction form -->
+    <a href="{{ url_for('predict_datapoint') }}" class="btn-main">Go to Prediction Page</a>
+
+    <!-- Button to GitHub repository -->
+    <a href="https://github.com/ADITI-VERMA05/Students-Performance-Indicator" class="btn-secondary" target="_blank">
+        View Project Repository
+    </a>
+  </div>
+
 </body>
 </html>

@@ -4,12 +4,134 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="login">
+
+    <h1>Student Exam Performance Indicator</h1>
+
+    <!-- Store old values -->
+    {% set gender = request.form.get('gender') %}
+    {% set ethnicity = request.form.get('ethnicity') %}
+    {% set parental_edu = request.form.get('parental_level_of_education') %}
+    {% set lunch = request.form.get('lunch') %}
+    {% set test_prep = request.form.get('test_preparation_course') %}
+    {% set writing = request.form.get('writing_score') %}
+    {% set reading = request.form.get('reading_score') %}
+
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+        <h2><legend>Student Exam Performance Prediction</legend></h2>
+
+        <!-- Gender -->
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" name="gender" required>
+                <option disabled value="">Select your Gender</option>
+                <option value="male"   {% if gender == 'male' %}selected{% endif %}>Male</option>
+                <option value="female" {% if gender == 'female' %}selected{% endif %}>Female</option>
+            </select>
+        </div>
+
+        <!-- Ethnicity -->
+        <div class="mb-3">
+            <label class="form-label">Race or Ethnicity</label>
+            <select class="form-control" name="ethnicity" required>
+                <option disabled value="">Select Ethnicity</option>
+                <option value="group A" {% if ethnicity == 'group A' %}selected{% endif %}>Group A</option>
+                <option value="group B" {% if ethnicity == 'group B' %}selected{% endif %}>Group B</option>
+                <option value="group C" {% if ethnicity == 'group C' %}selected{% endif %}>Group C</option>
+                <option value="group D" {% if ethnicity == 'group D' %}selected{% endif %}>Group D</option>
+                <option value="group E" {% if ethnicity == 'group E' %}selected{% endif %}>Group E</option>
+            </select>
+        </div>
+
+        <!-- Parent Education -->
+        <div class="mb-3">
+            <label class="form-label">Parental Level of Education</label>
+            <select class="form-control" name="parental_level_of_education" required>
+                <option disabled value="">Select Parent Education</option>
+
+                <option value="associate's degree" {% if parental_edu == "associate's degree" %}selected{% endif %}>associate's degree</option>
+
+                <option value="bachelor's degree"  {% if parental_edu == "bachelor's degree" %}selected{% endif %}>bachelor's degree</option>
+
+                <option value="high school"        {% if parental_edu == "high school" %}selected{% endif %}>high school</option>
+
+                <option value="master's degree"    {% if parental_edu == "master's degree" %}selected{% endif %}>master's degree</option>
+
+                <option value="some college"       {% if parental_edu == "some college" %}selected{% endif %}>some college</option>
+
+                <option value="some high school"   {% if parental_edu == "some high school" %}selected{% endif %}>some high school</option>
+            </select>
+        </div>
+
+        <!-- Lunch -->
+        <div class="mb-3">
+            <label class="form-label">Lunch Type</label>
+            <select class="form-control" name="lunch" required>
+                <option disabled value="">Select Lunch Type</option>
+                <option value="free/reduced" {% if lunch == "free/reduced" %}selected{% endif %}>free/reduced</option>
+                <option value="standard"     {% if lunch == "standard" %}selected{% endif %}>standard</option>
+            </select>
+        </div>
+
+        <!-- Test Prep -->
+        <div class="mb-3">
+            <label class="form-label">Test preparation Course</label>
+            <select class="form-control" name="test_preparation_course" required>
+                <option disabled value="">Select Test Course</option>
+                <option value="none"      {% if test_prep == "none" %}selected{% endif %}>None</option>
+                <option value="completed" {% if test_prep == "completed" %}selected{% endif %}>Completed</option>
+            </select>
+        </div>
+
+        <!-- Writing Score -->
+        <div class="mb-3">
+            <label class="form-label">Writing Score out of 100</label>
+            <input class="form-control" type="number" name="writing_score" min="0" max="100"
+                   value="{{ writing }}">
+        </div>
+
+        <!-- Reading Score -->
+        <div class="mb-3">
+            <label class="form-label">Reading Score out of 100</label>
+            <input class="form-control" type="number" name="reading_score" min="0" max="100"
+                   value="{{ reading }}">
+        </div>
+
+        <!-- Submit -->
+        <div class="mb-3">
+            <input class="btn-primary" type="submit" value="Predict your Maths Score" />
+        </div>
+    </form>
+
+    <h2>THE prediction is {{ results }}</h2>
+
+</div>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="login">
-       <h1>Student Exam Performance Indicator</h1>
-   
-       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>Student Exam Performance Indicator</h1>
+        {% set gender = request.form.get('gender') %}
+        {% set ethnicity = request.form.get('ethnicity') %}
+        {% set parental_edu = request.form.get('parental_level_of_education') %}
+        {% set lunch = request.form.get('lunch') %}
+        {% set test_prep = request.form.get('test_preparation_course') %}
+        {% set writing = request.form.get('writing_score') %}
+        {% set reading = request.form.get('reading_score') %}
+
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
         <h2>
             <legend>Student Exam Performance Prediction</legend>
         </h1>
@@ -114,4 +236,4 @@
        THE  prediction is {{results}}
     </h2>
    <body>
-</html>
+</html> -->

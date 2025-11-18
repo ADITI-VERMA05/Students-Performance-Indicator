@@ -1,0 +1,138 @@
+/* ------------------------------
+   GLOBAL PAGE STYLES
+------------------------------ */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ------------------------------
+   MAIN FORM CONTAINER
+------------------------------ */
+.login {
+    background-color: #ffffffdd;
+    padding: 10px 40px;
+    border-radius: 12px;
+    width: 450px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ------------------------------
+   HEADINGS
+------------------------------ */
+h1 {
+    text-align: center;
+    color: #2e4a7d;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #2e4a7d;
+    text-align: center;
+}
+
+/* ------------------------------
+   FORM STYLES
+------------------------------ */
+form label {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Dropdown hover effect */
+.form-control:hover {
+    border-color: #4e73df;
+}
+
+/* ------------------------------
+   BUTTON STYLES
+------------------------------ */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #4e73df;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #3751c5;
+}
+
+.btn-main {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 2px;
+    background-color: #1cc88a;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-main:hover {
+    background-color: #17a673;
+}
+
+.btn-secondary {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 2px;
+    background-color: #4e73df;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    background-color: #3751c5;
+}
+
+
+/* ------------------------------
+   RESULT BOX
+------------------------------ */
+.result {
+    margin-top: 20px;
+    background-color: #1cc88a;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
